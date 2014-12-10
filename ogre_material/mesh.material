@@ -1,0 +1,12 @@
+material M_Lighting
+{
+  technique
+  {
+    pass
+    {
+      point_size 4
+      lighting on
+      ambient vertexcolour
+    }
+  }
+}

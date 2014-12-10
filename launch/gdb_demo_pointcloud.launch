@@ -1,0 +1,58 @@
+<launch>
+    <!-- Topics to listen to -->
+    <arg name="topic1" default="/camera_1/rgb/image_raw" />
+    <arg name="topic2" default="/camera_2/rgb/image_raw" />
+    <arg name="topic3" default="none" />
+    <arg name="topic4" default="none" />
+    <arg name="topic5" default="none" />
+    <arg name="topic6" default="none" />
+    <arg name="topic7" default="none" />
+    <arg name="topic8" default="none" />
+
+    <!-- Camera parameter file path -->
+    <arg name="param_path1" default="~/.pal/vision/camera_rig/camera1.yaml" />
+    <arg name="param_path2" default="~/.pal/vision/camera_rig/camera2.yaml" />
+    <arg name="param_path3" default="none" />
+    <arg name="param_path4" default="none" />
+    <arg name="param_path5" default="none" />
+    <arg name="param_path6" default="none" />
+    <arg name="param_path7" default="none" />
+    <arg name="param_path8" default="none" />
+
+    <!-- Image synchronizer param -->
+    <arg name="queuesize" default="10" />
+    <arg name="transport" default="raw" />
+
+    <!-- Camera rig param -->
+    <arg name="sampling_ratio" default="4" />
+
+    <node pkg="ros_camera_rig" type="demo_spherical_pointcloud" name="demo_spherical_pointcloud" output="screen" launch-prefix="xterm -e gdb --args">
+       <param name="queue_size" value="$(arg queuesize)" />
+       <param name="transport" value="$(arg transport)" />
+       <param name="sampling_ratio" value="$(arg sampling_ratio)" />
+       <rosparam param="topics" subst_value="True" >
+        - $(arg topic1)
+        - $(arg topic2)
+        - $(arg topic3)
+        - $(arg topic4)
+        - $(arg topic5)
+        - $(arg topic6)
+        - $(arg topic7)
+        - $(arg topic8)
+       </rosparam>
+       <rosparam param="cams_param" subst_value="True" >
+        - $(arg param_path1)
+        - $(arg param_path2)
+        - $(arg param_path3)
+        - $(arg param_path4)
+        - $(arg param_path5)
+        - $(arg param_path6)
+        - $(arg param_path7)
+        - $(arg param_path8)
+       </rosparam>
+    </node>
+
+    <!--node name="rviz" pkg="rviz" type="rviz" output="screen"/ -->
+
+</launch>
+
