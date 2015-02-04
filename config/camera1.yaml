@@ -1,0 +1,23 @@
+%YAML:1.0
+
+# Camera parameters
+
+
+type: pinhole
+
+K: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [ 498.26984,  0,  304.18128,  0,  500.52897,  243.15995,  0,  0,  1 ]
+
+pose: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ 1,  0,  0,  0,  0,  1,  0,  0,  0,  0,  1,  0,  0,  0,  0,  1 ]
+   #+ -90º Z data: [ 0,  1,  0,  0,  -1,  0,  0,  0,  0,  0,  1,  0,  0,  0,  0,  1 ]
+
+image_size:
+   rows: 480
+   cols: 640
