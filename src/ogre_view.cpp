@@ -15,7 +15,7 @@ ViewerOgre::ViewerOgre(Ogre::String path, bool win) :
 
   _rootPtr->clearEventTimes();
 
-  ROS_INFO("Eveything's initialised !");
+  ROS_INFO("Ogre viewer's initialised !");
 }
 
 ViewerOgre::~ViewerOgre()

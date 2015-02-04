@@ -7,12 +7,13 @@ find_package(catkin REQUIRED COMPONENTS
     cv_bridge
     image_transport
     ros_img_sync
+    sensor_msgs
 )
 
 find_package( OpenCV REQUIRED )
 
 # Oculus SDK
-FIND_PACKAGE( OculusSDK REQUIRED )
+find_package( OculusSDK REQUIRED )
 link_directories(${OculusSDK_LIBRARY_DIRS})
 
 catkin_package(
@@ -20,9 +21,11 @@ catkin_package(
   LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS
     roscpp
+    std_msgs
     cv_bridge
     image_transport
     ros_img_sync
+    sensor_msgs
   DEPENDS OculusSDK
 )
 

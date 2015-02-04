@@ -37,35 +37,8 @@ public:
 
   ~SyncImageRig() {}
 
-  /**
-  * getImages()
-  * Gets updated images from SyncImageDisplay object
-  * @param images : std::vector< cv::Mat >
-  *                 this vector is first cleared then
-  *                 filled with images
-  * @param timeout : max duration to wait for images
-  */
-  bool waitForImages(std::vector<cv::Mat>& images,
-                     ros::Duration timeout = ros::Duration(0));
-
-  /**
-  * getTopics()
-  * Returns topics that are listened
-  */
-  std::vector<std::string> getTopics()
-  { return _topics; }
-
 protected:
 
-  /**
-  * A defined virtual member.
-  * @param vecImgPtr : std::vector< sensor_msgs::ImageConstPtr >
-  */
-  virtual void callback(const std::vector<MPtr>& vecImgPtr);
-
-  boost::mutex img_mut;
-  std::vector<cv::Mat> _images;
-  bool _new_img;
 };
 
 #endif  // ROS_CAMERA_RIG_IMAGE_HANDLER_H_
